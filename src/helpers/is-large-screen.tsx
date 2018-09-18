@@ -1,1 +1,1 @@
-export default (width: number) => width > 900;
+export default (width: number): boolean => width > 900;

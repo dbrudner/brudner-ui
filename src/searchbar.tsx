@@ -1,6 +1,14 @@
 import * as React from "react";
 import { Button } from "./index";
 
+type SearchFormProps = {
+	handleSubmit: (e: any) => void;
+};
+
+type SeachFormState = {
+	value: string;
+};
+
 const searchInput = {
 	height: "37px",
 	border: "none",
@@ -10,8 +18,11 @@ const searchInput = {
 	fontFamily: "Muli"
 };
 
-export class SearchForm extends React.Component<any, any> {
-	constructor(props: any) {
+export class SearchForm extends React.Component<
+	SearchFormProps,
+	SeachFormState
+> {
+	constructor(props: SearchFormProps) {
 		super(props);
 		this.state = {
 			value: ""

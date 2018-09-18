@@ -1,7 +1,7 @@
 import * as React from "react";
-import { colors } from "./colors";
+import { colors } from "../colors";
 
-type ButtonProps = {
+export type ButtonProps = {
 	status: "primary" | "secondary" | "danger" | "default" | "search";
 	type?: string;
 	onClick?: () => void;
@@ -26,30 +26,6 @@ const getButtonStyle = (props: any) => {
 
 export const Button: React.SFC<ButtonProps> = props => (
 	<button {...props} style={getButtonStyle(props)}>
-		{props.children}
-	</button>
-);
-
-type FloatingButtonProps = ButtonProps & {
-	style: React.CSSProperties;
-};
-
-const getFloatingButtonStyle = (props: any) => ({
-	borderRadius: "25px",
-	border: "none",
-	backgroundColor: colors[props.status] || colors.default,
-	color: "#fff",
-	fontSize: "48px",
-	lineHeight: "24px",
-	boxShadow: "3px 3px 3px #4d4d4d",
-	cursor: "pointer"
-});
-
-export const FloatingButton: React.SFC<FloatingButtonProps> = props => (
-	<button
-		{...props}
-		style={{ ...getFloatingButtonStyle(props), ...props.style }}
-	>
 		{props.children}
 	</button>
 );

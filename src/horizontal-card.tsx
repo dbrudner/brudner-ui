@@ -2,6 +2,11 @@ import * as React from "react";
 import { responsive } from "./responsive";
 import isLargeScreen from "./helpers/is-large-screen";
 
+type HCardProps = {
+	width: number;
+	style: React.CSSProperties;
+};
+
 const getHorizontalCardStyle = (width: number) => {
 	return {
 		display: isLargeScreen(width) ? "grid" : "",
@@ -9,7 +14,7 @@ const getHorizontalCardStyle = (width: number) => {
 	};
 };
 
-const HCard: React.SFC = (props: any) => (
+const HCard: React.SFC<HCardProps> = props => (
 	<div style={{ ...getHorizontalCardStyle(props.width), ...props.style }}>
 		{props.children}
 	</div>

@@ -5,10 +5,10 @@ import isLargeScreen from "../helpers/is-large-screen";
 type ListProps = {
 	align?: "horizontal";
 	type?: "nav";
-	width?: number;
+	width: number;
 };
 
-const createListStyle = (props: any) => ({
+const createListStyle = (props: ListProps) => ({
 	display:
 		props.align || (isLargeScreen(props.width) && props.type === "nav")
 			? "flex"
