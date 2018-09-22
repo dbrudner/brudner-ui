@@ -1,43 +1,50 @@
 import * as React from "react";
-import { shallow } from "enzyme";
-import { Popover } from "../src";
+import { mount } from "enzyme";
+import { Popover, Button } from "../src";
 
 describe("Popover mouseEnter", () => {
-	const wrapper = shallow(<Popover />);
+	const wrapper = mount(
+		<Popover content="Content" trigger="hover">
+			<Button status="primary">Hover me</Button>
+		</Popover>
+	);
 
 	it("should render content on mouse enter", () => {
-		wrapper.simulate("mouseEnter");
+		wrapper.find(".button").simulate("mouseEnter");
 		expect(wrapper.find("#content")).toHaveLength(1);
 	});
 
 	it("should remove content on mouse leave", () => {
-		wrapper.simulate("mouseLeave");
+		wrapper.find(".button").simulate("mouseLeave");
 		expect(wrapper.find("#content")).toHaveLength(1);
 	});
 });
 
 describe("Popover click", () => {
-	const wrapper = shallow(<Popover />);
+	const wrapper = mount(
+		<Popover content="Content" trigger="click">
+			<Button status="primary">Hover me</Button>
+		</Popover>
+	);
 
 	it("should render content on click", () => {
-		wrapper.simulate("click");
+		wrapper.find(".button").simulate("click");
 		expect(wrapper.find("#content")).toHaveLength(1);
 	});
 
 	it("should remove content on click", () => {
-		wrapper.simulate("click");
+		wrapper.find(".button").simulate("click");
 		expect(wrapper.find("#content")).toHaveLength(1);
 	});
 
 	it("should remove content on clicks (temporary, remove please)", () => {
-		wrapper.simulate("click");
-		wrapper.simulate("click");
+		wrapper.find(".button").simulate("click");
 		expect(wrapper.find("#content")).toHaveLength(1);
 	});
 
 	it("should remove content on outside click", () => {
-		wrapper.simulate("click");
-		wrapper.simulate("mouseLeave");
+		wrapper.find(".button").simulate("click");
+		wrapper.find(".button").simulate("mouseLeave");
 		expect(wrapper.find("#content")).toHaveLength(1);
 	});
 });

@@ -25,7 +25,7 @@ const getButtonStyle = (props: any) => {
 };
 
 export const Button: React.SFC<ButtonProps> = props => (
-	<button {...props} style={getButtonStyle(props)}>
+	<button className="button" {...props} style={getButtonStyle(props)}>
 		{props.children}
 	</button>
 );
