@@ -1,6 +1,6 @@
 {
 	"name": "brudner-ui",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "",
 	"main": "./lib/index.js",
 	"scripts": {
@@ -14,6 +14,9 @@
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
+	"dependencies": {
+		"styled-components": "^3.4.8"
+	},
 	"devDependencies": {
 		"@types/enzyme": "^3.1.14",
 		"@types/jest": "^23.3.2",
@@ -23,16 +26,17 @@
 		"enzyme": "^3.6.0",
 		"enzyme-adapter-react-16": "^1.5.0",
 		"jest": "^23.6.0",
-		"react": "^16.5.1",
-		"react-dom": "^16.5.1",
 		"react-test-renderer": "^16.5.1",
 		"source-map": "^0.7.3",
 		"source-map-loader": "^0.2.4",
-		"styled-components": "^3.4.8",
 		"typescript": "^3.0.3",
 		"webpack": "^4.19.1",
 		"webpack-cli": "^3.1.0",
 		"webpack-dev-server": "^3.1.8"
+	},
+	"peerDependencies": {
+		"react": "^16.5.1",
+		"react-dom": "^16.5.1"
 	},
 	"jest": {
 		"setupFiles": [
